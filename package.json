@@ -2,21 +2,12 @@
   "name": "lanchonete",
   "description": "Simple Server for Test Proposes",
   "version": "1.0.0",
-  "main": "main.js"
   "author": {
     "name": "T Queiroga",
     "email": "tomas.queiroga@dextra-sw.com"
   },
   "dependencies": {
-    "body-parser": "^1.17.2",
-    "express": "^4.15.3"
-  },
-  "engine": {
-    "node": "*",
-    "npm": "*"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/thiagopelikan/X-Server.git"
-  },
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
+  }
 }

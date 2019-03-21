@@ -44,6 +44,17 @@ const list_sandwiches = (res) => res.json(map_to_array(sandwiches))
 const list_ingredients = (res) => res.json(map_to_array(ingredients))
 const list_promos = (res) => res.json(map_to_array(promos))
 const list_orders = (res) => res.json(map_to_array(orders))
+const context = (res) => {
+
+	var o = {} // empty Object
+	o['sandwiches'] = map_to_array(sandwiches);
+	o['ingredients'] = map_to_array(ingredients);
+	o['promos'] = map_to_array(promos);
+	o['orders'] = map_to_array(orders);	
+	
+	res.json(o)
+
+}
 
 const get_sandwich = (id, res) => {
 	if (!sandwiches[id]) {
@@ -90,3 +101,5 @@ app.get('/api/promocao', (req, res) => list_promos(res))
 
 app.get('/api/pedido', (req, res) => list_orders(res))
 app.put('/api/pedido/:id_sandwich', (req, res) => add_order(req.params.id_sandwich, req.body.extras, res))
+
+app.get('/api/context', (req, res) => context(res))
