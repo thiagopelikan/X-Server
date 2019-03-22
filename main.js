@@ -109,7 +109,7 @@ const add_sandwich = (name, ingredients, image, res) => {
 
 }
 
-const context = (id_sandwich, extras, last_update, res) => {
+const context = (id_sandwich, extras, price, last_update, res) => {
 
 	if ((id_sandwich != null) && (!sandwiches[id_sandwich])) {
 		return res.status(400).send('Invalid id')
@@ -127,7 +127,7 @@ const context = (id_sandwich, extras, last_update, res) => {
 		extras = extras ? JSON.parse(extras) : []
 		let [last_id] = Object.keys(orders).slice(-1)
 		let id = last_id ? parseInt(last_id) + 1 : 1
-		let order = {id, id_sandwich, extras, date: actualDate}
+		let order = {id, id_sandwich, extras, price}
 		orders[id] = order
 
 		orders_last_update = actualDate
@@ -175,6 +175,6 @@ app.put('/api/pedido/:id_sandwich', (req, res) => add_order(req.params.id_sandwi
 //NEW APIS
 //The app should use only context api and lanche api is here for testing purpose
 app.put('/api/lanche', (req, res) => add_sandwich(req.body.name, req.body.ingredients, req.body.image, res))
-app.post('/api/context', (req, res) => context(req.body.id_sandwich, req.body.extras, req.body.last_update, res))
+app.post('/api/context', (req, res) => context(req.body.id_sandwich, req.body.extras, req.body.price, req.body.last_update, res))
 
 
