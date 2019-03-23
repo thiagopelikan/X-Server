@@ -1,7 +1,7 @@
 {
   "name": "lanchonete",
   "description": "Simple Server for Test Proposes",
-  "version": "1.0.0",
+  "version": 1,
   "author": {
     "name": "T Queiroga",
     "email": "tomas.queiroga@dextra-sw.com"
