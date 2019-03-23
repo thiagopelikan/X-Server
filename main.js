@@ -124,7 +124,6 @@ const context = (id_sandwich, extras, price, last_update, res) => {
 	var o = {} // empty Object
 		
 	if(id_sandwich != null){
-		extras = extras ? JSON.parse(extras) : []
 		let [last_id] = Object.keys(orders).slice(-1)
 		let id = last_id ? parseInt(last_id) + 1 : 1
 		let order = {id, id_sandwich, extras, price}
